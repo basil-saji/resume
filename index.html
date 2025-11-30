@@ -1,123 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basil Saji - Resume</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Basil Saji – Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --card: #111827;
+      --accent: #2563eb;
+      --accent-soft: rgba(37,99,235,0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 16px;
+    }
+    .shell {
+      width: 100%;
+      max-width: 1120px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(15,23,42,0.7);
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--muted);
+    }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34,197,94,0.9);
+    }
+    h1 {
+      font-size: 22px;
+      letter-spacing: 0.03em;
+      font-weight: 600;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-ghost {
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.08s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: white;
+      box-shadow: 0 14px 30px rgba(37,99,235,0.32);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(37,99,235,0.45);
+    }
+    .btn-ghost {
+      background: rgba(15,23,42,0.7);
+      color: var(--muted);
+      border-color: rgba(148,163,184,0.4);
+    }
+    .btn-ghost:hover {
+      border-color: rgba(129,140,248,0.9);
+      background: rgba(15,23,42,0.95);
+    }
+    .btn-icon {
+      font-size: 14px;
+      line-height: 1;
+    }
+    .frame-wrap {
+      background: rgba(15,23,42,0.96);
+      border-radius: 18px;
+      border: 1px solid rgba(148,163,184,0.45);
+      box-shadow:
+        0 22px 60px rgba(15,23,42,0.9),
+        0 0 0 1px rgba(15,23,42,0.4);
+      overflow: hidden;
+      position: relative;
+      backdrop-filter: blur(18px);
+      flex: 1;
+      min-height: min(82vh, 900px);
+      display: flex;
+      flex-direction: column;
+    }
+    .frame-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(51,65,85,0.9);
+      background:
+        radial-gradient(circle at top left, rgba(129,140,248,0.3), transparent 55%),
+        radial-gradient(circle at top right, rgba(56,189,248,0.25), transparent 50%),
+        rgba(15,23,42,0.96);
+    }
+    .traffic-lights {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,0.8);
+    }
+    .dot.red { background: #f97373; }
+    .dot.yellow { background: #fbbf24; }
+    .dot.green { background: #22c55e; }
+    .file-label {
+      font-size: 12px;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 4px 9px;
+      background: rgba(15,23,42,0.8);
+      border: 1px solid rgba(107,114,128,0.7);
+    }
+    .chip {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(56,189,248,0.6);
+      color: #bae6fd;
+      background: rgba(8,47,73,0.7);
+    }
+    .frame-inner {
+      flex: 1;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 60%);
+      padding: 10px;
+      display: flex;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      background: #020617;
+      box-shadow: inset 0 0 0 1px rgba(30,64,175,0.5);
+    }
+    .empty-warning {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 18px; }
+      .subtitle { font-size: 12px; }
+      .frame-wrap {
+        min-height: 70vh;
+      }
+      .frame-toolbar {
+        padding-inline: 10px;
+      }
+      .file-label { display: none; }
+    }
+  </style>
 </head>
 <body>
-    
-    <div class="download-container">
-        <a href="resume.pdf" class="download-btn" id="downloadBtn" download>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            Download PDF
+  <div class="shell">
+    <header class="header">
+      <div class="title-block">
+        <span class="badge">
+          <span class="badge-dot"></span>
+          Live resume • always up to date
+        </span>
+        <h1>Basil Saji – Resume</h1>
+        <p class="subtitle">B.Tech CSE · AI / ML · Modern web & software development</p>
+      </div>
+      <div class="actions">
+        <a class="btn-primary" href="resume.pdf" download>
+          <span class="btn-icon">⬇</span>
+          <span>Download PDF</span>
         </a>
-    </div>
+        <a class="btn-ghost" href="resume.pdf" target="_blank" rel="noopener">
+          <span class="btn-icon">↗</span>
+          <span>Open in new tab</span>
+        </a>
+      </div>
+    </header>
 
-    <div class="page">
-        <header>
-            <h1>BASIL SAJI</h1>
-            <p class="subtitle">B.Tech Computer Science and Engineering (2025-2029)</p>
-            <div class="contact-info">
-                <a href="https://github.com/basil-saji" target="_blank">github.com/basil-saji</a>
-                <span class="separator">|</span>
-                <a href="mailto:basilsaji.me@gmail.com">basilsaji.me@gmail.com</a>
-                <span class="separator">|</span>
-                <a href="https://linkedin.com/in/basilsaji03" target="_blank">linkedin.com/in/basilsaji03</a>
-            </div>
-        </header>
-
-        <section class="summary">
-            <h2>SUMMARY</h2>
-            <hr>
-            <p>First year B.Tech Computer Science & Engineering student with a strong interest in software development, AI/ML, and modern web technologies. Currently expanding core programming skills through personal projects and hands-on experimentation. Actively implementing small, end-to-end solutions that tackle practical problems and demonstrate applied technical understanding.</p>
-        </section>
-
-        <section class="education">
-            <h2>EDUCATION</h2>
-            <hr>
-            <div class="item">
-                <div class="item-header">
-                    <h3>Adi Shankara Institute Of Engineering and Technology</h3>
-                    <span class="date">2025 - 2029</span>
-                </div>
-                <p class="role">Bachelor of Technology in Computer Science and Engineering</p>
-            </div>
-            <div class="item">
-                <div class="item-header">
-                    <h3>GHHS Kadayiruppu</h3>
-                    <span class="date">2022 - 2024</span>
-                </div>
-                <p class="role">Secondary Education</p>
-                <ul class="bullet-list">
-                    <li>Class X: 93.8%</li>
-                    <li>Class XII (COMPUTER SCIENCE STREAM): 94.5%</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="skills">
-            <h2>SKILLS</h2>
-            <hr>
-            <ul class="bullet-list">
-                <li><strong>Programming:</strong> Python, C++, HTML, CSS, JavaScript</li>
-                <li><strong>Technologies:</strong> Git, GitHub</li>
-            </ul>
-        </section>
-
-        <section class="projects">
-            <h2>PROJECTS</h2>
-            <hr>
-            <div class="item">
-                <div class="item-header">
-                    <h3>AI Meeting Assistant Bot</h3>
-                    <span class="date">June 2025</span>
-                </div>
-                <p class="tools"><em>Tools: Python, AssemblyAI, Azure OpenAI, n8n, Telegram API</em></p>
-                <ul class="bullet-list">
-                    <li>Built a Telegram-based assistant that processes meeting audio and generates structured transcripts, using Assembly AI</li>
-                    <li>Used Azure OpenAI to produce concise summaries, extract action items, and interpret intent</li>
-                    <li>Automated email follow-ups and calendar scheduling through n8n workflows and API integrations</li>
-                    <li>Delivered a functional end-to-end system combining AI, automation, and real-time communication</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="memberships">
-            <h2>PROFESSIONAL MEMBERSHIPS</h2>
-            <hr>
-            <ul class="bullet-list">
-                <li>IEEE – Student Member (2025 – Present)</li>
-                <li>IEEE Computer Society – Student Member (2025 – Present)</li>
-            </ul>
-        </section>
-
-        <section class="certifications">
-            <h2>CERTIFICATIONS</h2>
-            <hr>
-            <div class="item">
-                <div class="item-header">
-                    <h3>Foundational Course on Agentic AI</h3>
-                    <span class="date">June 2025</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="additional">
-            <h2>ADDITIONAL INFORMATION</h2>
-            <hr>
-            <p><strong>Languages:</strong> English (Professional Working Proficiency), Hindi (Professional Working Proficiency), Malayalam</p>
-        </section>
-    </div>
-
-    <script src="script.js"></script>
+    <main class="frame-wrap">
+      <div class="frame-toolbar">
+        <div class="traffic-lights">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <span class="file-label">BASIL_SAJI_RESUME.pdf</span>
+        <span class="chip">PDF • 1 page</span>
+      </div>
+      <div class="frame-inner">
+        <iframe src="resume.pdf#view=fitH"></iframe>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
