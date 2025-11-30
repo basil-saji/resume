@@ -1,14 +1,8 @@
-// Download button functionality
 document.getElementById('downloadBtn').addEventListener('click', function(e) {
-    e.preventDefault();
+    // This assumes you have uploaded a file named "resume.pdf" to the same folder
+    // The 'download' attribute in HTML5 usually handles this, but this provides a fallback
+    // or allows for specific logic if needed.
     
-    // You can either:
-    // 1. Link to a hosted PDF file
-    // 2. Generate PDF from the page using print dialog
-    
-    // Option 2: Open print dialog (user can save as PDF)
-    window.print();
-    
-    // Option 1: If you have a PDF file, uncomment below and update the path
-    // window.location.href = 'path/to/your/resume.pdf';
+    // e.preventDefault(); // Optional: remove if you want standard link behavior to handle it
+    console.log("Downloading resume.pdf...");
 });

@@ -10,113 +10,112 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="download-btn-wrapper">
-            <a href="#" class="download-btn" id="downloadBtn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                Download PDF
-            </a>
-        </div>
+    
+    <div class="download-container">
+        <a href="resume.pdf" class="download-btn" id="downloadBtn" download>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download PDF
+        </a>
+    </div>
 
+    <div class="page">
         <header>
             <h1>BASIL SAJI</h1>
+            <p class="subtitle">B.Tech Computer Science and Engineering (2025-2029)</p>
             <div class="contact-info">
-                <a href="mailto:basilsaji.me@gmail.com">basilsaji.me@gmail.com</a>
-                <span class="separator">•</span>
                 <a href="https://github.com/basil-saji" target="_blank">github.com/basil-saji</a>
+                <span class="separator">|</span>
+                <a href="mailto:basilsaji.me@gmail.com">basilsaji.me@gmail.com</a>
+                <span class="separator">|</span>
+                <a href="https://linkedin.com/in/basilsaji03" target="_blank">linkedin.com/in/basilsaji03</a>
             </div>
         </header>
 
         <section class="summary">
             <h2>SUMMARY</h2>
+            <hr>
             <p>First year B.Tech Computer Science & Engineering student with a strong interest in software development, AI/ML, and modern web technologies. Currently expanding core programming skills through personal projects and hands-on experimentation. Actively implementing small, end-to-end solutions that tackle practical problems and demonstrate applied technical understanding.</p>
         </section>
 
         <section class="education">
             <h2>EDUCATION</h2>
-            <div class="education-item">
-                <div class="education-header">
-                    <div>
-                        <h3>Adi Shankara Institute Of Engineering and Technology</h3>
-                        <p class="degree">Bachelor of Technology in Computer Science and Engineering</p>
-                    </div>
+            <hr>
+            <div class="item">
+                <div class="item-header">
+                    <h3>Adi Shankara Institute Of Engineering and Technology</h3>
                     <span class="date">2025 - 2029</span>
                 </div>
+                <p class="role">Bachelor of Technology in Computer Science and Engineering</p>
             </div>
-            <div class="education-item">
-                <div class="education-header">
-                    <div>
-                        <h3>GHHS Kadayiruppu</h3>
-                        <p class="degree">Secondary Education</p>
-                    </div>
+            <div class="item">
+                <div class="item-header">
+                    <h3>GHHS Kadayiruppu</h3>
                     <span class="date">2022 - 2024</span>
                 </div>
-                <ul class="achievements">
+                <p class="role">Secondary Education</p>
+                <ul class="bullet-list">
                     <li>Class X: 93.8%</li>
                     <li>Class XII (COMPUTER SCIENCE STREAM): 94.5%</li>
                 </ul>
             </div>
         </section>
 
+        <section class="skills">
+            <h2>SKILLS</h2>
+            <hr>
+            <ul class="bullet-list">
+                <li><strong>Programming:</strong> Python, C++, HTML, CSS, JavaScript</li>
+                <li><strong>Technologies:</strong> Git, GitHub</li>
+            </ul>
+        </section>
+
         <section class="projects">
             <h2>PROJECTS</h2>
-            <div class="project-item">
-                <div class="project-header">
+            <hr>
+            <div class="item">
+                <div class="item-header">
                     <h3>AI Meeting Assistant Bot</h3>
                     <span class="date">June 2025</span>
                 </div>
-                <ul>
+                <p class="tools"><em>Tools: Python, AssemblyAI, Azure OpenAI, n8n, Telegram API</em></p>
+                <ul class="bullet-list">
                     <li>Built a Telegram-based assistant that processes meeting audio and generates structured transcripts, using Assembly AI</li>
                     <li>Used Azure OpenAI to produce concise summaries, extract action items, and interpret intent</li>
                     <li>Automated email follow-ups and calendar scheduling through n8n workflows and API integrations</li>
                     <li>Delivered a functional end-to-end system combining AI, automation, and real-time communication</li>
                 </ul>
-                <p class="tools"><strong>Tools:</strong> Python, AssemblyAI, Azure OpenAI, n8n, Telegram API</p>
-            </div>
-        </section>
-
-        <section class="skills">
-            <h2>SKILLS</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Programming</h4>
-                    <p>Python, C++, HTML, CSS, JavaScript</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Technologies</h4>
-                    <p>Git, GitHub</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="certifications">
-            <h2>CERTIFICATIONS</h2>
-            <div class="cert-item">
-                <h3>Foundational Course on Agentic AI</h3>
-                <span class="date">June 2025</span>
             </div>
         </section>
 
         <section class="memberships">
             <h2>PROFESSIONAL MEMBERSHIPS</h2>
-            <ul>
+            <hr>
+            <ul class="bullet-list">
                 <li>IEEE – Student Member (2025 – Present)</li>
                 <li>IEEE Computer Society – Student Member (2025 – Present)</li>
             </ul>
         </section>
 
-        <section class="additional">
-            <h2>ADDITIONAL INFORMATION</h2>
-            <p><strong>Languages:</strong> English (Professional Working Proficiency), Hindi (Professional Working Proficiency), Malayalam</p>
+        <section class="certifications">
+            <h2>CERTIFICATIONS</h2>
+            <hr>
+            <div class="item">
+                <div class="item-header">
+                    <h3>Foundational Course on Agentic AI</h3>
+                    <span class="date">June 2025</span>
+                </div>
+            </div>
         </section>
 
-        <footer>
-            <p>&copy; 2025 Basil Saji. All rights reserved.</p>
-        </footer>
+        <section class="additional">
+            <h2>ADDITIONAL INFORMATION</h2>
+            <hr>
+            <p><strong>Languages:</strong> English (Professional Working Proficiency), Hindi (Professional Working Proficiency), Malayalam</p>
+        </section>
     </div>
 
     <script src="script.js"></script>
