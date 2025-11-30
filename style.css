@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #525659; /* Dark grey background like a PDF viewer */
+    background-color: #525659; /* Dark grey background for desktop */
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
@@ -41,15 +41,17 @@ body {
     background-color: #1d4ed8;
 }
 
-/* A4 Page Styling */
+/* Page Styling (Desktop Base) */
 .page {
     background: white;
-    width: 210mm; /* Standard A4 width */
-    min-height: 297mm; /* Standard A4 height */
-    padding: 20mm; /* Standard margin */
+    width: 100%;          /* Fluid width */
+    max-width: 210mm;     /* Cap at A4 width */
+    min-height: 297mm;    /* A4 height ratio */
+    padding: 20mm;        /* A4 margins */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     margin-top: 20px;
     color: #000;
+    position: relative;
 }
 
 /* Typography & Layout */
@@ -74,6 +76,10 @@ header h1 {
 
 .contact-info {
     font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
 }
 
 .contact-info a {
@@ -82,7 +88,6 @@ header h1 {
 }
 
 .separator {
-    margin: 0 5px;
     color: #666;
 }
 
@@ -93,7 +98,7 @@ section {
 h2 {
     font-size: 14px;
     text-transform: uppercase;
-    color: #2563eb; /* Accent color matching your PDF links usually, or black */
+    color: #2563eb;
     margin-bottom: 5px;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -106,7 +111,7 @@ hr {
 }
 
 p, li {
-    font-size: 12px; /* Standard readable document size */
+    font-size: 12px;
     line-height: 1.5;
 }
 
@@ -117,6 +122,7 @@ p, li {
 .item-header {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     margin-bottom: 2px;
 }
 
@@ -129,6 +135,7 @@ p, li {
     font-size: 12px;
     font-weight: 600;
     text-align: right;
+    white-space: nowrap;
 }
 
 .role {
@@ -151,6 +158,64 @@ p, li {
     margin-bottom: 3px;
 }
 
+/* === MOBILE OPTIMIZATION === */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0;
+        background-color: #fff; /* Native white background for mobile */
+    }
+
+    .page {
+        box-shadow: none;
+        margin-top: 0;
+        padding: 20px; /* Reduced padding for small screens */
+        max-width: 100%;
+        min-height: auto;
+    }
+
+    /* Move download button to bottom-right (Floating Action Button style) */
+    .download-container {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .download-btn {
+        padding: 12px 24px; /* Larger touch target */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Stack header items if needed */
+    .item-header {
+        flex-direction: column;
+    }
+
+    .date {
+        text-align: left;
+        margin-top: 2px;
+        color: #555;
+        font-size: 11px;
+    }
+
+    /* Adjust font sizes for readability */
+    p, li, .role, .tools {
+        font-size: 13px; /* Slightly larger text for mobile reading */
+    }
+    
+    header h1 {
+        font-size: 22px;
+    }
+
+    .separator {
+        display: none; /* Hide pipes on mobile, items will just gap or wrap */
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
 /* Print Optimization */
 @media print {
     body {
@@ -164,6 +229,7 @@ p, li {
         box-shadow: none;
         margin: 0;
         width: 100%;
-        height: auto;
+        max-width: none;
+        padding: 20mm;
     }
 }
