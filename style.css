@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #525659; /* Dark grey background for desktop */
+    background-color: #525659; /* Dark grey background like a PDF viewer */
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
@@ -41,17 +41,15 @@ body {
     background-color: #1d4ed8;
 }
 
-/* Page Styling (Desktop Base) */
+/* A4 Page Styling */
 .page {
     background: white;
-    width: 100%;          /* Fluid width */
-    max-width: 210mm;     /* Cap at A4 width */
-    min-height: 297mm;    /* A4 height ratio */
-    padding: 20mm;        /* A4 margins */
+    width: 210mm; /* Standard A4 width */
+    min-height: 297mm; /* Standard A4 height */
+    padding: 20mm; /* Standard margin */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     margin-top: 20px;
     color: #000;
-    position: relative;
 }
 
 /* Typography & Layout */
@@ -77,17 +75,31 @@ header h1 {
 .contact-info {
     font-size: 12px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 5px;
 }
 
-.contact-info a {
+.contact-link {
     color: #000;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s;
+}
+
+.contact-link:hover {
+    color: #2563eb;
+}
+
+.contact-link .icon {
+    flex-shrink: 0;
 }
 
 .separator {
+    margin: 0 5px;
     color: #666;
 }
 
@@ -122,7 +134,6 @@ p, li {
 .item-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
     margin-bottom: 2px;
 }
 
@@ -135,7 +146,6 @@ p, li {
     font-size: 12px;
     font-weight: 600;
     text-align: right;
-    white-space: nowrap;
 }
 
 .role {
@@ -158,61 +168,63 @@ p, li {
     margin-bottom: 3px;
 }
 
-/* === MOBILE OPTIMIZATION === */
-@media screen and (max-width: 768px) {
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
     body {
-        padding: 0;
-        background-color: #fff; /* Native white background for mobile */
+        padding: 10px 0;
+        background-color: white;
     }
 
     .page {
+        width: 100%;
+        min-height: auto;
+        padding: 15px;
         box-shadow: none;
         margin-top: 0;
-        padding: 20px; /* Reduced padding for small screens */
-        max-width: 100%;
-        min-height: auto;
     }
 
-    /* Move download button to bottom-right (Floating Action Button style) */
     .download-container {
-        top: auto;
-        bottom: 20px;
-        right: 20px;
+        position: static;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
     }
 
-    .download-btn {
-        padding: 12px 24px; /* Larger touch target */
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    header h1 {
+        font-size: 20px;
     }
 
-    /* Stack header items if needed */
+    .subtitle {
+        font-size: 12px;
+    }
+
+    /* Hide text, show only icons in mobile */
+    .contact-info .link-text {
+        display: none;
+    }
+
+    .contact-info .separator {
+        display: none;
+    }
+
+    .contact-info {
+        gap: 20px;
+        margin-top: 10px;
+    }
+
+    .contact-link .icon {
+        width: 24px;
+        height: 24px;
+    }
+
     .item-header {
         flex-direction: column;
+        align-items: flex-start;
     }
 
     .date {
         text-align: left;
         margin-top: 2px;
-        color: #555;
-        font-size: 11px;
-    }
-
-    /* Adjust font sizes for readability */
-    p, li, .role, .tools {
-        font-size: 13px; /* Slightly larger text for mobile reading */
-    }
-    
-    header h1 {
-        font-size: 22px;
-    }
-
-    .separator {
-        display: none; /* Hide pipes on mobile, items will just gap or wrap */
-    }
-    
-    .contact-info {
-        flex-direction: column;
-        gap: 8px;
     }
 }
 
@@ -229,7 +241,9 @@ p, li {
         box-shadow: none;
         margin: 0;
         width: 100%;
-        max-width: none;
-        padding: 20mm;
+        height: auto;
+    }
+    .contact-info .link-text {
+        display: inline;
     }
 }
