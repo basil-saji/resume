@@ -14,34 +14,46 @@ body {
     min-height: 100vh;
 }
 
-/* Download Button Styling - Desktop (non-floating, above page) */
+/* Download Button Styling - Desktop */
 .download-container {
-    width: 210mm;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 15px;
-    padding: 0 10px;
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
 }
 
 .download-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 10px 20px;
+    padding: 12px;
     background-color: #2563eb;
     color: white;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 50%;
     font-weight: 500;
     font-size: 14px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
+    width: 56px;
+    height: 56px;
 }
 
 .download-btn:hover {
     background-color: #1d4ed8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    transform: scale(1.05);
+}
+
+.download-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.download-btn .btn-text {
+    display: none;
 }
 
 /* A4 Page Styling */
@@ -51,6 +63,7 @@ body {
     min-height: 297mm; /* Standard A4 height */
     padding: 20mm; /* Standard margin */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-top: 0;
     color: #000;
 }
 
@@ -173,7 +186,7 @@ p, li {
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
     body {
-        padding: 0;
+        padding: 10px 0;
         background-color: white;
     }
 
@@ -185,44 +198,19 @@ p, li {
         margin-top: 0;
     }
 
-    /* Floating Action Button (FAB) - Mobile Bottom Right */
+    /* FAB positioning for mobile */
     .download-container {
         position: fixed;
-        bottom: 20px;
         right: 20px;
-        width: auto;
-        margin: 0;
-        padding: 0;
-        z-index: 1000;
+        bottom: 20px;
+        top: auto;
+        transform: none;
     }
 
     .download-btn {
         width: 56px;
         height: 56px;
-        border-radius: 50%;
-        padding: 0;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-
-    .download-btn:hover {
-        transform: scale(1.1);
-    }
-
-    .download-btn:active {
-        transform: scale(0.95);
-    }
-
-    /* Hide text in FAB, show only icon */
-    .download-btn svg {
-        width: 24px;
-        height: 24px;
-        margin: 0;
-    }
-
-    .download-btn::after {
-        content: '';
-        display: none;
+        padding: 12px;
     }
 
     header h1 {
@@ -260,14 +248,6 @@ p, li {
     .date {
         text-align: left;
         margin-top: 2px;
-    }
-}
-
-/* Tablet breakpoint - keep desktop style */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .download-container {
-        width: 100%;
-        max-width: 210mm;
     }
 }
 
