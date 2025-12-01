@@ -10,41 +10,37 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 0;
+    padding: 20px 0; /* Minimized top padding to remove gap */
     min-height: 100vh;
 }
 
-/* Download Button Styling - Desktop */
+/* --- Download Button (Desktop Position) --- */
 .download-container {
     position: fixed;
+    top: 20px;
     right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
     z-index: 1000;
 }
 
+/* Round Icon Button Style */
 .download-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 12px;
+    width: 48px;
+    height: 48px;
     background-color: #2563eb;
     color: white;
     text-decoration: none;
     border-radius: 50%;
-    font-weight: 500;
-    font-size: 14px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
-    width: 56px;
-    height: 56px;
 }
 
 .download-btn:hover {
     background-color: #1d4ed8;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
     transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
 }
 
 .download-btn svg {
@@ -52,18 +48,19 @@ body {
     height: 24px;
 }
 
-.download-btn .btn-text {
+/* Hide text globally to show ICON ONLY */
+.btn-text {
     display: none;
 }
 
-/* A4 Page Styling */
+/* --- A4 Page Styling --- */
 .page {
     background: white;
     width: 210mm; /* Standard A4 width */
     min-height: 297mm; /* Standard A4 height */
     padding: 20mm; /* Standard margin */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    margin-top: 0;
+    margin-top: 0; /* Ensures it sits high up */
     color: #000;
 }
 
@@ -93,7 +90,7 @@ header h1 {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 15px;
 }
 
 .contact-link {
@@ -186,31 +183,24 @@ p, li {
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
     body {
-        padding: 10px 0;
-        background-color: white;
+        padding: 0;
+        background-color: white; /* Optional: seamless mobile bg */
     }
 
     .page {
         width: 100%;
         min-height: auto;
-        padding: 15px;
+        padding: 20px;
+        padding-bottom: 80px; /* Space for FAB */
         box-shadow: none;
         margin-top: 0;
     }
 
-    /* FAB positioning for mobile */
+    /* Move Download Button to Bottom Right (FAB) */
     .download-container {
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
         top: auto;
-        transform: none;
-    }
-
-    .download-btn {
-        width: 56px;
-        height: 56px;
-        padding: 12px;
+        bottom: 20px;
+        right: 20px;
     }
 
     header h1 {
@@ -221,7 +211,7 @@ p, li {
         font-size: 12px;
     }
 
-    /* Hide text, show only icons in mobile */
+    /* Hide text links, show icons only on mobile */
     .contact-info .link-text {
         display: none;
     }
